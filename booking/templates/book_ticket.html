@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Book Tickets for "{{ show.title }}"</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="seats" class="form-label">Number of Seats</label>
+            <input type="number" class="form-control" id="seats" name="seats" min="1" max="{{ show.available_seats }}" required>
+        </div>
+        {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+        <button type="submit" class="btn">Book</button>
+    </form>
+</div>
+{% endblock %}

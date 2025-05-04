@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container text-center">
+    <h1 class="my-4">Welcome to the Ticket Booking System</h1>
+    <p class="lead">Book your favorite movie tickets with ease!</p>
+    
+    <a href="{% url 'show_list' %}" class="btn btn-light btn-lg">Browse Shows</a>
+    <a href="{% url 'login' %}" class="btn btn-outline-light btn-lg">Login</a>
+    <a href="{% url 'register' %}" class="btn btn-outline-light btn-lg">Register</a>
+</div>
+{% endblock %}

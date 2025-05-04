@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Admin - Show List</h1>
+    
+    <a href="{% url 'admin_show_create' %}" class="btn btn-light mb-3">Create New Show</a>
+    
+    <div class="row">
+        {% for show in shows %}
+        <div class="col-md-4">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+                    <h5 class="card-title">{{ show.title }}</h5>
+                    <a href="{% url 'admin_show_update' show.id %}" class="btn btn-warning">Edit</a>
+                    <a href="{% url 'admin_show_delete' show.id %}" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

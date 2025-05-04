@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Create / Edit Show</h1>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="title" class="form-label">Show Title</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{ show.title }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" name="description" required>{{ show.description }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="date" class="form-label">Date</label>
+            <input type="date" class="form-control" id="date" name="date" value="{{ show.date }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="time" class="form-label">Time</label>
+            <input type="time" class="form-control" id="time" name="time" value="{{ show.time }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="total_seats" class="form-label">Total Seats</label>
+            <input type="number" class="form-control" id="total_seats" name="total_seats" value="{{ show.total_seats }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="available_seats" class="form-label">Available Seats</label>
+            <input type="number" class="form-control" id="available_seats" name="available_seats" value="{{ show.available_seats }}" required>
+        </div>
+        <button type="submit" class="btn btn-light">Save Show</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Available Shows</h1>
+    
+    <div class="row">
+        {% for show in shows %}
+        <div class="col-md-4">
+            <div class="card bg-dark text-white">
+                <img src="{{ show.image_url }}" class="card-img-top" alt="{{ show.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ show.title }}</h5>
+                    <p class="card-text">{{ show.description }}</p>
+                    <a href="{% url 'book_ticket' show.id %}" class="btn btn-primary">Book Tickets</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
